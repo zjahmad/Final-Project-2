@@ -1,5 +1,6 @@
 class Instructor < ApplicationRecord
   # relationships
+  # belongs_to :user
   has_many :camp_instructors
   has_many :camps, through: :camp_instructors
 
