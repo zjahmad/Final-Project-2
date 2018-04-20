@@ -15,7 +15,7 @@ class Student < ApplicationRecord
     scope :active, -> { where(active: true) }
     scope :inactive, -> { where(active: false) }
     scope :below_rating, -> (ceiling) { where('rating < ?', ceiling) }
-    scope :at_or_above_rating, -> (floor) { where ('rating >=?', floor) }
+    scope :at_or_above_rating, -> (floor) { where('rating >=?', floor) }
     
     
     # callbacks
@@ -23,22 +23,22 @@ class Student < ApplicationRecord
     
     private
     
-    def adjusted_rating
-        self.rating = 0 if self.rating.nil?
-    end
+    # def adjusted_rating
+    #     self.rating = 0 if self.rating.nil?
+    # end
     
-    # methods
-    def name
-        last_name + ", " + first_name
-    end
+    # # methods
+    # def name
+    #     last_name + ", " + first_name
+    # end
   
-    def proper_name
-        first_name + " " + last_name
-    end
+    # def proper_name
+    #     first_name + " " + last_name
+    # end
     
-    def age
-        now = Time.now.utc.to_date
-        now.year - date_of_birth.year - (date_of_birth.to_date.change(:year => now.year) > now ? 1 : 0)
-    end
+    # def age
+    #     now = Time.now.utc.to_date
+    #     now.year - date_of_birth.year - (date_of_birth.to_date.change(:year => now.year) > now ? 1 : 0)
+    # end
     
 end

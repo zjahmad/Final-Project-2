@@ -54,6 +54,11 @@ class LocationTest < ActiveSupport::TestCase
       assert_equal ["Squirrel Hill"], Location.inactive.all.map(&:name).sort
       delete_inactive_locations
     end
-
+    
+    should "validate the destruction of a location without a camp" do
+      assert @cmu.destroy
+      assert @cmu.camps.empty?
+    end
+    
   end
 end

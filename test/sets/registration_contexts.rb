@@ -1,11 +1,13 @@
 module Contexts
     module RegistrationContexts
-        def create_registration
-            @jeremaya = FactoryBot.create(:family, user: )
+        def create_registrations
+            @r1 = FactoryBot.create(:registration, camp: @camp1, student: @ash)
+            @r2 = FactoryBot.create(:registration, camp: @camp3, student: @draw)
         end
         
-        def delete_registration
+        def delete_registrations
+            @r1.delete
+            @r2.delete
         end
-        
     end
 end

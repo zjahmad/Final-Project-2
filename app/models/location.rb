@@ -17,4 +17,13 @@ class Location < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
+  before_destroy :location_not_used_for_camps
+  
+  
+  private
+
+  def location_not_used_for_camps
+      self.camps.empty?
+  end
+  
 end

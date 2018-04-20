@@ -2,7 +2,7 @@ module Contexts
   module InstructorContexts
     def create_instructors
       @mark   = FactoryBot.create(:instructor)
-      @alex   = FactoryBot.create(:instructor, first_name: "Alex", bio: nil, phone: "412-268-8211")
+      @alex   = FactoryBot.create(:instructor, first_name: "Alex", bio: nil)
       @rachel = FactoryBot.create(:instructor, first_name: "Rachel", bio: nil, active: false)
     end
 
@@ -13,10 +13,10 @@ module Contexts
     end
 
     def create_more_instructors
-      @mike     = FactoryBot.create(:instructor, first_name: "Mike", last_name: "Ferraco", bio: "A stupendous chess player as you have ever seen.", email: "mike.ferraco@example.com")
+      @mike     = FactoryBot.create(:instructor, first_name: "Mike", last_name: "Ferraco", bio: "A stupendous chess player as you have ever seen.")
       @patrick  = FactoryBot.create(:instructor, first_name: "Patrick", last_name: "Dustmann", bio: "A stupendous chess player as you have ever seen.")
       @austin   = FactoryBot.create(:instructor, first_name: "Austin", last_name: "Bohn", bio: "A stupendous chess player as you have ever seen.")
-      @nathan   = FactoryBot.create(:instructor, first_name: "Nathan", last_name: "Hahn", bio: "A stupendous chess player as you have ever seen.", email: "nathan.hahn@example.com")
+      @nathan   = FactoryBot.create(:instructor, first_name: "Nathan", last_name: "Hahn", bio: "A stupendous chess player as you have ever seen.")
       @ari      = FactoryBot.create(:instructor, first_name: "Ari", last_name: "Rubinstein", bio: "A stupendous chess player as you have ever seen.")
       @seth     = FactoryBot.create(:instructor, first_name: "Seth", last_name: "Vargo", bio: "A stupendous chess player as you have ever seen.")
       @stafford = FactoryBot.create(:instructor, first_name: "Stafford", last_name: "Brunk", bio: "A stupendous chess player as you have ever seen.")

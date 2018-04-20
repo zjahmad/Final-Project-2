@@ -14,14 +14,14 @@ class Registration < ApplicationRecord
     
     private
     
-    def student_is_active_in_the_system
-        return if self.student.nil?
-        errors.add(:student, "is not currently active") unless self.student.active
-    end
+    # def student_is_active_in_the_system
+    #     return if self.student.nil?
+    #     errors.add(:student, "is not currently active") unless self.student.active
+    # end
     
-    def camp_is_active_in_the_system
-        return if self.camp.nil?
-        errors.add(:camp, "is not currently active") unless self.camp.active
-    end
+    # def camp_is_active_in_the_system
+    #     return if self.camp.nil?
+    #     errors.add(:camp, "is not currently active") unless self.camp.active
+    # end
     
 end

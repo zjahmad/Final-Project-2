@@ -29,6 +29,7 @@ class Camp < ApplicationRecord
   scope :upcoming, -> { where('start_date >= ?', Date.today) }
   scope :past, -> { where('end_date < ?', Date.today) }
   scope :for_curriculum, ->(curriculum_id) { where("curriculum_id = ?", curriculum_id) }
+  scope :full, -> { joins(:registrations).group(:camp_id).having('count(*) = max_students') }
   
     # instance methods
   def name
@@ -73,4 +74,16 @@ class Camp < ApplicationRecord
       self.camp_instructors.each{|ci| ci.destroy}
     end
   end
+  
+  # def is_full?
+  #   self.max_students == self.registrations.count
+  # end
+  
+  # def enrollment
+  #   self.registrations.count
+  # end
+  
+  
+  
+  
 end

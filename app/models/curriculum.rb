@@ -15,7 +15,8 @@ class Curriculum < ApplicationRecord
   scope :inactive, -> { where(active: false) }
   scope :for_rating, ->(rating) { where("min_rating <= ? and max_rating >= ?", rating, rating) }
 
-
+  before_destroy:is_never_destroyable
+  
   private
   def max_rating_greater_than_min_rating
     # only testing 'greater than' in this method, so...
@@ -24,6 +25,7 @@ class Curriculum < ApplicationRecord
       errors.add(:max_rating, "must be greater than the minimum rating")
     end
   end
-
+  
+  
 
 end
